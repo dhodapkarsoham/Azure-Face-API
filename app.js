@@ -1,17 +1,16 @@
 const express = require('express');
-const app = express();
-const cors = require('cors');
 const dotenv = require('dotenv');
-const bodyParser = require('body-parser');
-const morgan = require('morgan');
+const app = express();
+const bodyParser = require('body-parser')
+dotenv.config();
 
+const port = process.env.PORT || 3000;
 const faceRoute = require('./api/routes/face');
 
-
-dotenv.config();
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.json());
-app.use(cors());
-app.use(morgan('dev'));
+app.use(express.json());
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }))
 
 app.use('/', faceRoute);
+
+app.listen(port, () => console.log('Server running'));
