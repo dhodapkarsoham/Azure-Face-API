@@ -4,6 +4,9 @@ const axios = require('axios');
 const dotenv = require('dotenv');
 dotenv.config();
 
+
+//* DETECT FEATURES OF AN IMAGE
+
 router.post('/detect', (req, res, next) => {
 
     axios.defaults.headers = {
@@ -36,6 +39,8 @@ router.post('/detect', (req, res, next) => {
     })
 });
 
+//* CREATE AN EMPTY FACE LIST
+
 router.put('/facelists/:facelistsId?', (req, res, next) => {
 
     axios.defaults.headers = {
@@ -67,6 +72,8 @@ router.put('/facelists/:facelistsId?', (req, res, next) => {
     })
 });
 
+//* GET FACELIST AND PERSISTED FACES INSIDE THE FACELIST
+
 router.get('/facelists/:facelistsId?', (req, res, next) => {
 
     axios.defaults.headers = {
@@ -90,6 +97,8 @@ router.get('/facelists/:facelistsId?', (req, res, next) => {
 
 });
 
+//*ADD AN IMAGE TO THE FACELIST
+
 router.post('/facelists/:facelistsId?', (req, res, next) => {
 
     axios.defaults.headers = {
@@ -112,6 +121,8 @@ router.post('/facelists/:facelistsId?', (req, res, next) => {
         console.log(err);
     })
 });
+
+//* FIND SIMILARITY BETWEEN A DETECTED FACE AND FACES INSIDE A FACELIST WITH SIMILARITY SCORE
 
 router.post('/similars', (req, res, next) => {
 
