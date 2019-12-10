@@ -30,6 +30,9 @@ router.post('/detect', (req, res, next) => {
         res.status(200).send(response.data)        
     }).catch(err => {
         console.log(err);
+        res.json({
+            err: error.response.data.error
+        })
     })
 });
 
@@ -63,6 +66,9 @@ router.put('/facelists/:facelistsId', (req, res, next) => {
         })
     }).catch(err => {
         console.log(err.response.data.error);
+        res.json({
+            err: error.response.data.error
+        })
     })
 });
 
@@ -86,7 +92,9 @@ router.get('/facelists/:facelistsId', (req, res, next) => {
             res.status(200).send(response.data)
         }).catch(err => {
             console.log(err.response.data.error); 
-            res.send(err.response.data.error);  
+            res.json({
+                err: error.response.data.error
+            })  
         })
 
 });
@@ -114,7 +122,7 @@ router.post('/facelists/:facelistsId', (req, res, next) => {
     }).catch(err => {
         console.log(err);
         res.json({
-            error: err
+            err: error.response.data.error
         })
     })
 });
@@ -136,7 +144,7 @@ router.post('/similars', (req, res, next) => {
         res.status(200).send(response.data);
     }).catch(err => {
         res.json({
-            error: err
+            err: error.response.data.error
         })
     })
 
