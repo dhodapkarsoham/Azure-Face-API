@@ -35,9 +35,10 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // ROUTES TO HANDLE THE REQUESTS
 
 //! REMOVE THE 'face' AND JUST KEEP '/'
-app.use('/face', faceRoute);
+// app.use('/face', faceRoute);
+app.use('/', faceRoute);
 
 //! COMMENT THIS OUT
-app.use('/', userRoute);
+// app.use('/', userRoute);
 
 app.listen(port, () => console.log('Server running'));
