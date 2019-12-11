@@ -3,8 +3,9 @@
 # Azure-Face-API <br>
 ----
 This API is hosted on Digital Ocean server and registered with name.com with the domain 'azurefaceapi.live'.
-> 
-This API calls Microsoft Azure Cognitive Services' Face API to perform operations of face detection, creating and adding to a face list and finding similar faces.
+> This API calls Microsoft Azure Cognitive Services' Face API to perform operations of face detection, creating and adding to a face list and finding similar faces.
+Appending respective endpoint URLs to the Base URL will cause the client to hit the appropriate API endpoint.
+
 
 > Base URL: <br>
   azurefaceapi.live:3000/
