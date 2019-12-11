@@ -9,7 +9,8 @@ const port = process.env.PORT || 3000;
 
 // DECLARING ROUTES
 const faceRoute = require('./api/routes/face');
-const userRoute = require('./api/routes/user');
+const checkAuth = require('./api/middleware/checkAuth');
+const loginRoute = require('./api/routes/login');
 
 //  CONNECT TO THE DATABASE
 mongoose.connect(
@@ -28,6 +29,7 @@ app.use(function(req, res, next) {
     next();
   });
 
+// MIDDLEWARE
 app.use(express.json());
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -35,10 +37,15 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // ROUTES TO HANDLE THE REQUESTS
 
 //! REMOVE THE 'face' AND JUST KEEP '/'
-// app.use('/face', faceRoute);
 app.use('/', faceRoute);
 
-//! COMMENT THIS OUT
-// app.use('/', userRoute);
+//! ROUTES TO HANDLE REQUESTS IF JWT AUTH IS USED
+// app.use('/', checkAuth, faceRoute);
+
+//! USER SIGN-IN ROUTE IF AUTH IS GOING TO BE USED
+// app.use('/login', loginRoute); 
+
+//! USER SIGN-UP ROUTE IF AUTH IS GOING TO BE USED
+// app.use('/user', userRoute);
 
 app.listen(port, () => console.log('Server running'));

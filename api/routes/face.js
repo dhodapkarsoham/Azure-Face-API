@@ -4,6 +4,8 @@ const axios = require('axios');
 const dotenv = require('dotenv');
 dotenv.config();
 
+const checkAuth = require('../middleware/checkAuth');
+
 
 //* (1) DETECT FEATURES OF AN IMAGE
 
@@ -39,7 +41,7 @@ router.post('/detect', (req, res, next) => {
 //* (2) CREATE AN EMPTY FACE LIST
 
 router.put('/facelists/:facelistsId', (req, res, next) => {
-
+// router.put('/facelists/:facelistsId', checkAuth, (req, res, next) => {
     axios.defaults.headers = {
         "Content-Type": "application/json",
         "Ocp-Apim-Subscription-Key": process.env.subscriptionKEY
@@ -75,7 +77,7 @@ router.put('/facelists/:facelistsId', (req, res, next) => {
 //* (3) GET FACELIST AND PERSISTED FACES INSIDE THE FACELIST
 
 router.get('/facelists/:facelistsId', (req, res, next) => {
-
+// router.get('/facelists/:facelistsId', checkAuth, (req, res, next) => {
     axios.defaults.headers = {
         "Content-Type": "application/json",
         "Ocp-Apim-Subscription-Key": process.env.subscriptionKEY
@@ -102,7 +104,7 @@ router.get('/facelists/:facelistsId', (req, res, next) => {
 //* (4) ADD AN IMAGE TO THE FACELIST
 
 router.post('/facelists/:facelistsId', (req, res, next) => {
-
+// router.post('/facelists/:facelistsId', checkAuth, (req, res, next) => {
     axios.defaults.headers = {
         "Content-Type": "application/json",
         "Ocp-Apim-Subscription-Key": process.env.subscriptionKEY
@@ -130,7 +132,7 @@ router.post('/facelists/:facelistsId', (req, res, next) => {
 //* (5) FIND SIMILARITY BETWEEN A DETECTED FACE AND FACES INSIDE A FACELIST WITH SIMILARITY SCORE
 
 router.post('/similars', (req, res, next) => {
-
+// router.post('/similars', checkAuth, (req, res, next) => {
     axios.defaults.headers = {
         "Content-Type": "application/json",
         "Ocp-Apim-Subscription-Key": process.env.subscriptionKEY
@@ -153,6 +155,8 @@ router.post('/similars', (req, res, next) => {
 //* (6) GET A LIST OF ALL THE AVAILABLE FACELISTS
 
 router.get('/facelists', (req, res, next) => {
+// router.get('/facelists', checkAuth, (req, res, next) => {
+
     axios.defaults.headers = {
         "Content-Type": "application/json",
         "Ocp-Apim-Subscription-Key": process.env.subscriptionKEY
@@ -175,6 +179,8 @@ router.get('/facelists', (req, res, next) => {
 //* (7) DELETE A FACELIST
 
 router.delete('/facelists/:facelistsId', (req, res, next) => {
+// router.delete('/facelists/:facelistsId', checkAuth, (req, res, next) => {
+
     axios.defaults.headers = {
         "Content-Type": "application/json",
         "Ocp-Apim-Subscription-Key": process.env.subscriptionKEY
@@ -198,6 +204,8 @@ router.delete('/facelists/:facelistsId', (req, res, next) => {
 //* (8) VERIFY THE SIMILARITY BETWEEN TWO FACES
 
 router.post('/verify', (req, res, next) => {
+// router.post('/verify', checkAuth, (req, res, next) => {
+
     axios.defaults.headers = {
         "Content-Type": "application/json",
         "Ocp-Apim-Subscription-Key": process.env.subscriptionKEY
