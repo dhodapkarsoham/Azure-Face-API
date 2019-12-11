@@ -273,7 +273,7 @@ _Note: It is advised to use 'detection_01' and 'recognition_01' so that all feat
   
     `POST`
 
-* **URL **
+* **URL**
      /verify
 
        
@@ -384,7 +384,7 @@ _Note: It is advised to use 'detection_01' and 'recognition_01' so that all feat
   
     `PUT`
 
-* **URL **
+* **URL**
      /facelists/{facelistId}
   
 *  **URL Params**
@@ -441,7 +441,7 @@ _Note: It is advised to use 'detection_01' and 'recognition_01' so that all feat
   
     `POST`
 
-* **URL **
+* **URL**
      /facelists/{facelistId}/persistedFaces[?userData][&detectionModel]
   
 *  **URL Params**
@@ -493,7 +493,7 @@ _Note: It is advised to use 'detection_01' and 'recognition_01' so that all feat
   
     `GET`
 
-* **URL **
+* **URL**
      /facelists/{facelistId}[?returnRecognitionModel]
   
 *  **URL Params**
@@ -546,7 +546,7 @@ To get face information inside faceList use FaceList - Get.
   
     `GET`
 
-* **URL **
+* **URL**
      /facelists[?returnRecognitionModel]
   
 *  **URL Params**
@@ -590,7 +590,7 @@ To get face information inside faceList use FaceList - Get.
   
     `DELETE`
 
-* **URL **
+* **URL**
      /facelists/{facelistId}
   
 *  **URL Params**
